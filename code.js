@@ -16,6 +16,11 @@ const findAnswers = async(question, passage) => {
     // select the answers div
     const $answersDiv = document.getElementById('answers');
 
+    if (!answers.length) {
+        $answersDiv.innerHTML = 'No answers for this question!';
+        return;
+    }
+
     // empty it if there are answers from previous question
     $answersDiv.innerHTML = '';
 
