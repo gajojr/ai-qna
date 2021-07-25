@@ -1,13 +1,34 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: bisque;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 label {
     margin: 5px;
-    display: block;
+    display: flex;
+    flex-direction: column;
     font-family: sans-serif;
+}
+
+textarea {
+    width: 40vw;
+}
+
+button {
+    align-self: center;
+}
+
+@media (max-width: 992px) {
+    textarea {
+        width: 80vw;
+    }
 }

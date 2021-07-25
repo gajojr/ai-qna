@@ -13,16 +13,18 @@
     <form>
         <label for="passage">
             <span>Passage:</span>
-            <textarea type="text" id="passage" rows="20" cols="80"></textarea>
+            <textarea type="text" id="passage" name="passage" rows="20" cols="80" required></textarea>
         </label>
 
         <label for="question">
-            Question:
-            <input type="text" id="question">
+            <span>Question:</span>
+            <input type="text" id="question" name="question" required>
         </label>
 
         <button type="submit">Find answers</button>
     </form>
+
+    <section id="answers"></section>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs">
