@@ -2,6 +2,9 @@ const $form = document.querySelector('form');
 $form.addEventListener('submit', e => {
     e.preventDefault();
 
+    // empty it if there are answers from previous question
+    document.getElementById('answers').innerHTML = '';
+
     const passage = e.target.passage.value;
     const question = e.target.question.value;
 
@@ -9,9 +12,13 @@ $form.addEventListener('submit', e => {
 });
 
 const findAnswers = async(question, passage) => {
+    document.querySelector('.loader').style.display = 'block';
+
     const model = await qna.load();
     const answers = await model.findAnswers(question, passage);
     console.log(answers);
+
+    document.querySelector('.loader').style.display = 'none';
 
     // select the answers div
     const $answersDiv = document.getElementById('answers');
@@ -20,9 +27,6 @@ const findAnswers = async(question, passage) => {
         $answersDiv.innerHTML = 'No answers for this question!';
         return;
     }
-
-    // empty it if there are answers from previous question
-    $answersDiv.innerHTML = '';
 
     // append every answer to answers div
     answers.forEach((answer, idx) => {
