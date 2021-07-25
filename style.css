@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: bisque;
+}
+
+label {
+    margin: 5px;
+    display: block;
+    font-family: sans-serif;
+}
